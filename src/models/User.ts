@@ -10,6 +10,7 @@ export interface IUser extends Document {
   userName: string;
   email: string;
   password: string;
+  role: 'buyer' | 'seller'; 
 }
 
 const UserSchema: Schema = new Schema({
@@ -39,6 +40,12 @@ const UserSchema: Schema = new Schema({
     required: [true, `Password${MESSAGES.IS_REQUIRED}`], 
     validate: [validator.isStrongPassword, MESSAGES.PASSWORD_COMPLEXITY]
   },
+  role: { 
+    type: String, 
+    required: [true, `Role${MESSAGES.IS_REQUIRED}`], 
+    enum: ['buyer', 'seller'],  // Only allows "buyer" or "seller"
+    message: `Role must be one of 'buyer' or 'seller'`
+  }
 });
 
 // Hash password before saving
