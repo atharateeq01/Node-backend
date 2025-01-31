@@ -44,6 +44,16 @@ export const getUserById = async (req: AuthRequest, res: Response) => {
   }
 };
 
+export const getUserInfo = async (req: AuthRequest, res: Response) => {
+  try {
+    
+    const user: IUser | null = await userService.getUserById(req.userId ?? '');
+    handleEmptyResponse(res, user);
+  } catch (error) {
+    sendResponse(res, HTTP_STATUS.INTERNAL_SERVER_ERROR, MESSAGES.INTERNAL_SERVER_ERROR);
+  }
+};
+
 export const updateUser = async (req: Request, res: Response) => {
   try {
     const userData = req.body;
