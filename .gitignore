@@ -1,0 +1,35 @@
+# Node.js specific
+/node_modules
+
+# macOS specific
+.DS_Store
+
+# IDEs and editors
+.idea/
+.vscode/
+
+# Logs
+*.log
+
+# Environment variables
+.env
+
+# Dependency directories
+/bower_components/
+
+# Compiled output
+/dist/
+/build/
+
+# OS generated files
+Thumbs.db
+.DS_Store?
+
+# Node package manager files
+npm-debug.log*
+
+# Visual Studio Code workspace files
+*.code-workspace
+
+# Yarn Integrity file
+.yarn-integrity
