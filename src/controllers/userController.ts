@@ -46,8 +46,7 @@ export const getUserById = async (req: AuthRequest, res: Response) => {
 
 export const getUserInfo = async (req: AuthRequest, res: Response) => {
   try {
-    
-    const user: IUser | null = await userService.getUserById(req.userId ?? '');
+    const user : IUser | null = await userService.getUserInfo(req.userId);
     handleEmptyResponse(res, user);
   } catch (error) {
     sendResponse(res, HTTP_STATUS.INTERNAL_SERVER_ERROR, MESSAGES.INTERNAL_SERVER_ERROR);

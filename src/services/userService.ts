@@ -16,6 +16,10 @@ export const getUserById = async (userId: string): Promise<IUser | null> => {
   return await User.findById(userId, { password: 0 }).exec();
 };
 
+export const getUserInfo = async (userId: IUser['_id']): Promise<IUser | null> => {
+  return await User.findById(userId, { password: 0 }).exec();
+};
+
 export const updateUser = async (userId: string, userData: Partial<IUser>): Promise<IUser | null> => {
   delete userData.password
   return await User.findByIdAndUpdate(userId, userData, { new: true, runValidators: true, projection: { password: 0 } });

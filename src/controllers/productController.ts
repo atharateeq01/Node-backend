@@ -21,9 +21,7 @@ export const createProduct = async (req: Request, res: Response) => {
 
 export const getProducts = async (req: Request, res: Response) => {
   try {        
-    const products : IProduct[]= await productService.getProducts();
-    console.log(products);
-    
+    const products : IProduct[]= await productService.getProducts();    
     handleEmptyResponse(res, products);
   } catch (error) {
     sendResponse(res, HTTP_STATUS.INTERNAL_SERVER_ERROR, MESSAGES.INTERNAL_SERVER_ERROR);

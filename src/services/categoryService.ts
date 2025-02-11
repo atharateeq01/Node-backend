@@ -1,6 +1,6 @@
 import Category, { ICategory } from '@models/Category';
 
-export const createCategory = async (categoryData: { categoryName: string; categoryDescription: string; categoryImage: string; }): Promise<ICategory | null> => {
+export const createCategory = async (categoryData:ICategory): Promise<ICategory | null> => {
   const category = new Category(categoryData);
   await category.save();
   return getCategoryById(category.id);
